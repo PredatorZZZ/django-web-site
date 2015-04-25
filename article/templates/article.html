@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+{% load staticfiles %}
+{% block article %}
+    <h4 xmlns="http://www.w3.org/1999/html">{{ article.article_date }}</h4>
+    <h2>{{ article.article_title }}</h2>
+    <p>{{ article.article_text }}</p>
+    <p><a href="/articles/addlike/{{ article.id }}"><img src="{% static "like_ico.jpg" %}" width="25px" height="25px"></a>{{ article.article_likes }}</p>
+    <hr>
+    <div class="large-offset-1 large-8 colums">
+    <p>Комментарии</p>
+    {%   for comment in comments %}
+        <hr>
+       <p> {{ comment.comment_date }}</p>
+       <p> {{ comment.comment_text }}</p>
+    {% endfor %}
+    {% if username %}
+    <form action="/articles/addcomment/{{ article.id}}/" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" class="button" value = "Добавить коммантарий">
+    </form>
+    {% endif %}
+    </div>
+{% endblock %}
