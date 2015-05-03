@@ -11,6 +11,7 @@
     {%   for comment in comments %}
         <hr>
        <p> {{ comment.comment_date }}</p>
+        <p> {{ comment.comment_from.username }}
        <p> {{ comment.comment_text }}</p>
     {% endfor %}
     {% if username %}

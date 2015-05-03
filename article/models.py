@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Article(models.Model):
@@ -18,4 +19,5 @@ class Comments(models.Model):
     comment_article = models.ForeignKey(Article)
     comment_text = models.TextField(max_length=500, verbose_name='Текст комментария')
     comment_date = models.DateTimeField(auto_now=True)
-
+    comment_from = models.ForeignKey(User)
+    #comment_form = models.TextField(default= 'Predator')

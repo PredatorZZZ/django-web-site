@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'article',
     'loginsys',
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -94,3 +95,4 @@ STATICFILES_DIRS = (
    #'/var/www/static/',
 
 )
+
