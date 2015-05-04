@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'article',
     'loginsys',
+    #'south',
 
 )
 
@@ -95,4 +96,8 @@ STATICFILES_DIRS = (
    #'/var/www/static/',
 
 )
-
+'''
+SOUTH_DATABASE_ADAPTER = {
+    os.path.join(BASE_DIR, 'south.db.sqlite3'),
+}
+'''

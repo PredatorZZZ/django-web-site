@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
     def forwards(self, orm):
         comments = orm.Comments.all()
         for comment in comments:
-            rand = randrange(1, 4)
+            rand = randrange(1, 2)
             comment.comment_from = orm['auth.User'].objects.get(id = rand)
             comment.save()
     def backward(self, orm):

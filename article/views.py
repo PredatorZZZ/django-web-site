@@ -10,6 +10,7 @@ from forms import CommentForm
 from django.core.context_processors import csrf
 from django.contrib import auth
 from django.core.paginator import Paginator
+from django.contrib.auth.models import User
 
 def basic_one(request):
     view = "basic_one"
@@ -59,12 +60,15 @@ def addlike(request, article_id):
     return redirect('/')
 
 def addcomment(request, article_id):
+
     if request.POST and ['pause' not in request.session]:
+        user_id = auth.get_user(request).id
         form = CommentForm(request.POST)
         if form.is_valid():
-            comment = form.save(commit = False)
-            comment.comment_article = Article.objects.get(id = article_id)
+            comment = form.save(commit=False)
+            comment.comment_article = Article.objects.get(id=article_id)
+            comment.comment_from = User.objects.get(id=user_id)
             form.save()
-            request.session.set_expiry(60)
+            request.session.set_expiry(7200)
             request.session['pause'] = True
-    return redirect('article/get/%s/' % article_id)
+    return redirect('article/get/%s' % article_id)
