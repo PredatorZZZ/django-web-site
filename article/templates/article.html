@@ -15,7 +15,7 @@
        <p> {{ comment.comment_text }}</p>
     {% endfor %}
     {% if username %}
-    <form action="/articles/addcomment/{{ article.id}}/" method="post">
+    <form action="/articles/addcomment/{{article.id}}/" method="post">
         {% csrf_token %}
         {{ form }}
         <input type="submit" class="button" value = "Добавить коммантарий">
