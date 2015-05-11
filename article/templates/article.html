@@ -4,7 +4,9 @@
     <h4 xmlns="http://www.w3.org/1999/html">{{ article.article_date }}</h4>
     <h2>{{ article.article_title }}</h2>
     <p>{{ article.article_text }}</p>
+    <p><img src="/static/{{ article.article_images }}"/></p>
     <p><a href="/articles/addlike/{{ article.id }}"><img src="{% static "like_ico.jpg" %}" width="25px" height="25px"></a>{{ article.article_likes }}</p>
+    <script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,gplus"></div>
     <hr>
     <div class="large-offset-1 large-8 colums">
     <p>Комментарии</p>

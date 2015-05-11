@@ -12,23 +12,9 @@ from django.contrib import auth
 from django.core.paginator import Paginator
 from django.contrib.auth.models import User
 
-def basic_one(request):
-    view = "basic_one"
-    html = "<html><body>This is %s view</body></html>" %view
-    return HttpResponse(html)
-
-def template_two(reequest):
-    view = "template_two"
-    t = get_template('myview.html')
-    html = t.render(Context({'name': view}))
-    return HttpResponse(html)
-
-def template_three_simple(reqest):
-    view = "template_three"
-    return render_to_response('myview.html', {'name': view})
-
 def articles(request, page_number=1):
     all_articles = tuple(reversed(Article.objects.all()))
+    #all_articles = Article.objects.all()
     current_page = Paginator(all_articles, 5)
     return render_to_response('articles.html', {'articles': current_page.page(page_number),
                                                 'username': auth.get_user(request).username})

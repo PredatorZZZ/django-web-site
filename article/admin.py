@@ -6,7 +6,7 @@ class ArticleInline(admin.StackedInline):
     extra = 2
 
 class ArticeAdmin(admin.ModelAdmin):
-    fields = ['article_title', 'article_text', 'article_date']
+    fields = ['article_title', 'article_text', 'article_images']
     inlines = [ArticleInline]
     list_filter = ['article_date']
 
