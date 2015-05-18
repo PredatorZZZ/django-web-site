@@ -14,7 +14,6 @@ from django.contrib.auth.models import User
 
 def articles(request, page_number=1):
     all_articles = tuple(reversed(Article.objects.all()))
-    #all_articles = Article.objects.all()
     current_page = Paginator(all_articles, 5)
     return render_to_response('articles.html', {'articles': current_page.page(page_number),
                                                 'username': auth.get_user(request).username})
@@ -55,4 +54,4 @@ def addcomment(request, article_id):
             form.save()
             request.session.set_expiry(7200)
             request.session['pause'] = True
-    return redirect('article/get/%s' % article_id)
+    return redirect('article/get/%s/' % article_id)

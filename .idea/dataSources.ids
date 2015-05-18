@@ -11,6 +11,7 @@
       <column name="article_date" sqlType="DATETIME" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
       <column name="article_likes" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
       <column name="article_dislikes" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="article_images" sqlType="VARCHAR(100)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
       <primary-key columns="id"/>
       <exported-key name="#FAKE_comments_2" table="comments" schema="" catalog="" columns="comment_article_id"/>
     </table>
@@ -75,9 +76,9 @@
     </table>
     <table name="comments" schema="" catalog="" type="TABLE">
       <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="comment_article_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
       <column name="comment_text" sqlType="TEXT" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
       <column name="comment_date" sqlType="DATETIME" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
-      <column name="comment_article_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
       <column name="comment_from_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
       <primary-key columns="id"/>
       <foreign-key name="#FAKE_comments_1" columns="comment_from_id" ref-table="auth_user" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
@@ -120,20 +121,6 @@
     <table name="sqlite_sequence" schema="" catalog="" type="TABLE">
       <column name="name" sqlType="" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
       <column name="seq" sqlType="" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
-    </table>
-    <table name="sqlite_sp_functions" schema="" catalog="" type="TABLE">
-      <column name="name" sqlType="TEXT" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
-      <column name="text" sqlType="TEXT" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
-    </table>
-    <table name="sqlite_vs_links_names" schema="" catalog="" type="TABLE">
-      <column name="name" sqlType="TEXT" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
-      <column name="alias" sqlType="TEXT" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
-    </table>
-    <table name="sqlite_vs_properties" schema="" catalog="" type="TABLE">
-      <column name="parentType" sqlType="TEXT" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
-      <column name="parentName" sqlType="TEXT" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
-      <column name="propertyName" sqlType="TEXT" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
-      <column name="propertyValue" sqlType="TEXT" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
     </table>
   </data-source>
 </component>
